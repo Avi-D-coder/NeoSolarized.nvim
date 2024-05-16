@@ -15,7 +15,10 @@ function M.setup()
     Comment                                  = { fg = c.fg2, style = options.styles.comments }, -- any comment
     Conceal                                  = { fg = c.bg1 },                                  -- placeholder characters substituted for concealed text (see 'conceallevel')
     CurSearch                                = { link = "IncSearch" },
-    CurrentWord                              = { fg = c.bg0, bg = c.bg_green },
+    CurrentWord                              = {
+      bg = config.is_day() and c.bg1 or c.bg1,
+      fg = config.is_day() and c.fg0 or c.none,
+    },
     Cursor                                   = { fg = c.bg1, bg = c.fg0 },                      -- character under the cursor
     CursorColumn                             = { link = "CursorLine" },                         -- Screen-column at the cursor, when 'cursorcolumn' is set.
     CursorIM                                 = { fg = c.bg0, bg = c.fg0 },                      -- like Cursor, but used when in IME mode |CursorIM|
@@ -34,7 +37,18 @@ function M.setup()
     Folded                                   = { fg = c.blue, bg = c.bg1 },                                  -- line used for closed folds
     Foo                                      = { bg = c.purple, fg = c.purple },
     HintText                                 = { sp = c.green, undercurl = false },
-    IncSearch                                = { bg = c.orange, fg = c.bg0 },                                     -- 'incsearch' highlighting; also used for the text replaced with ":s///c" InfoText     = { sp = c.blue, undercurl = options.styles.undercurl },
+    IncSearch                                = {
+      bg = c.bg1,
+      fg = config.is_day() and c.fg0 or c.none,
+      undercurl = true,
+      bold = true,
+      italic = true,
+    },  
+    Search                                   = {
+      bg = config.is_day() and c.base1 or c.bg1,
+      fg = config.is_day() and c.fg0 or c.none,
+      underline = true,
+    },  
     LineNr                                   = { bg = options.transparent and c.none or c.bg1, fg = c.fg1 },      -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     MatchParen                               = { fg = c.orange, bold = true },                                    -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     ModeMsg                                  = { fg = c.fg2, bold = true },                                       -- 'showmode' message (e.g., "-- INSERT -- ")
@@ -51,7 +65,6 @@ function M.setup()
     PmenuThumb                               = { bg = c.base1 },                                                  -- Popup menu: Thumb of the scrollbar.
     Question                                 = { fg = c.blue },                                                   -- |hit-enter| prompt and yes/no questions
     QuickFixLine                             = { bg = c.bg1, bold = true, undercurl = options.styles.undercurl }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
-    Search                                   = { bg = c.bg_green, fg = c.bg0 },                                   -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
     SignColumn                               = { bg = options.transparent and c.none or c.bg0 },                  -- column where |signs| are displayed
     SignColumnSB                             = { bg = c.bg0, fg = c.bg1 },                                        -- column where |signs| are displayed
     SpecialKey                               = { fg = c.fg2 },                                                    -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
