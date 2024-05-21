@@ -82,7 +82,8 @@ function M.setup()
     VertSplit                                = { fg = options.transparent and c.bg0 or c.base1 },                 -- the column separating vertically split windows
     Visual                                   = {
       bg = config.is_day() and c.base1 or c.bg1,
-      fg = config.is_day() and c.fg0 or c.none
+      fg = config.is_day() and c.fg0 or c.none,
+      underline = true,
     },                                                                                                       -- Visual mode selection
     VisualNOS                                = { bg = c.bg1 },                                               -- Visual mode selection when vim is "Not Owning the Selection".
     WarningMsg                               = { fg = c.red },                                               -- warning messages
