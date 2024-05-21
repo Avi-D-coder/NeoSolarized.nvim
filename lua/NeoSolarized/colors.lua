@@ -2,6 +2,9 @@ local M = {}
 
 -- @class Dark Color Palette
 M.dark = {
+  -- A mix of bg1 and fg0
+  visual      = '#15424c',
+  search      = '#0e3c47',
   bg0         = '#002b36',
   bg1         = '#073642',
   bg2         = '#002b36',

@@ -38,14 +38,12 @@ function M.setup()
     Foo                                      = { bg = c.purple, fg = c.purple },
     HintText                                 = { sp = c.green, undercurl = false },
     IncSearch                                = {
-      bg = c.bg1,
+      bg = config.is_day() and c.bg1 or c.search,
       fg = config.is_day() and c.fg0 or c.none,
-      undercurl = true,
     },  
     Search                                   = {
-      bg = config.is_day() and c.base1 or c.bg1,
+      bg = config.is_day() and c.base1 or c.search,
       fg = config.is_day() and c.fg0 or c.none,
-      underline = true,
     },  
     LineNr                                   = { bg = options.transparent and c.none or c.bg1, fg = c.fg1 },      -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     MatchParen                               = { fg = c.orange, bold = true },                                    -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
@@ -79,9 +77,8 @@ function M.setup()
     Title                                    = { fg = c.blue, bold = true },                                      -- titles for output from ":set all", ":autocmd" etc.
     VertSplit                                = { fg = options.transparent and c.bg0 or c.base1 },                 -- the column separating vertically split windows
     Visual                                   = {
-      bg = config.is_day() and c.base1 or c.bg1,
+      bg = config.is_day() and c.base1 or c.visual,
       fg = config.is_day() and c.fg0 or c.none,
-      underline = true,
     },                                                                                                       -- Visual mode selection
     VisualNOS                                = { bg = c.bg1 },                                               -- Visual mode selection when vim is "Not Owning the Selection".
     WarningMsg                               = { fg = c.red },                                               -- warning messages
