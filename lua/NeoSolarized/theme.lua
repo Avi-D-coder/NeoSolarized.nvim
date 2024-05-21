@@ -41,8 +41,6 @@ function M.setup()
       bg = c.bg1,
       fg = config.is_day() and c.fg0 or c.none,
       undercurl = true,
-      bold = true,
-      italic = true,
     },  
     Search                                   = {
       bg = config.is_day() and c.base1 or c.bg1,
